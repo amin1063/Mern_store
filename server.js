@@ -6,6 +6,7 @@ import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoute.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
+import {fileURLtoPath} from 'url';
 import cors from "cors";
 
 //configure env
@@ -13,6 +14,10 @@ dotenv.config();
 
 //databse config
 connectDB();
+
+const __filename = fileURLtoPath(import.meta.url);
+
+const __dirname =   path.dirname(__filename);
 
 //rest object
 const app = express();
